@@ -1,0 +1,19 @@
+
+.main-title {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 12px;
+
+    &__vertical {
+        border-left: 1px solid black;
+        height: 15px;
+        margin: 0.9em;
+    }
+
+    &__title {
+        font-size: 1em;    
+        font-weight: 300;
+        letter-spacing: 4px;
+    }
+}
