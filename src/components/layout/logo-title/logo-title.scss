@@ -16,4 +16,8 @@
         font-weight: 300;
         letter-spacing: 4px;
     }
+
+    @media (max-width: 650px) {
+        display: none;
+    }
 }
