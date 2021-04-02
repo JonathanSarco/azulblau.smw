@@ -1,5 +1,6 @@
 import React from 'react';
 import azulBlau from '../../../assets/azul_blau.png'
+import './logo.scss';
 
 function Logo() {
     return (
