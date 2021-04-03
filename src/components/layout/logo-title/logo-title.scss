@@ -17,6 +17,10 @@
         letter-spacing: 4px;
     }
 
+    &--shrink {
+        display: none;
+    }
+
     @media (max-width: 650px) {
         display: none;
     }

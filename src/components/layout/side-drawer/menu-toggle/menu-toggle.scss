@@ -1,11 +1,9 @@
 .toggle-menu {
     width: 35px;
-    height: 100%;
     display: flex;
     flex-flow: column;
     justify-content: space-around;
-    align-items: center;
-    padding: 15px 0;
+    align-items: center;   
     box-sizing: border-box;
     cursor: pointer;
     margin-left: auto;
@@ -17,6 +15,16 @@
         border-radius: 10px;
         background-color: #0E1317;
         opacity: 80%;
+    }
+
+    &--big {
+        height: 100%;
+        padding: 15px 0;
+    }
+
+    &--shrink {
+        height: 80%;
+        padding: 2px 0;
     }
 
     @media(min-width: 500px) {

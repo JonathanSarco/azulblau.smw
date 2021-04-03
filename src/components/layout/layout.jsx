@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "./logo/logo";
 import NavBar from "./navbar/navbar";
 import './layout.scss'
@@ -8,7 +8,15 @@ import MenuToggle from "./side-drawer/menu-toggle/menu-toggle";
 
 function Layout({ children }) {
   const [showSideDrawer, setShowSideDrawer] = useState(false);
+  const [shrink, setShrink] = useState(false);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", () =>
+        setShrink(window.pageYOffset > 60)
+      );
+    }
+  }, []);
 
   const sideDrawerClosedHandler = () => {
       setShowSideDrawer(false);
@@ -20,11 +28,11 @@ function Layout({ children }) {
 
   return (
     <>
-    <header className="header-bar"> 
+    <header className={`header-bar header-bar--${!shrink ? 'big' : 'small' }`}> 
       <Logo />
-      <LogoTitle />
+      <LogoTitle shrink={shrink}/>
       <NavBar />
-      <MenuToggle clicked={sideDrawerToggleHandler}/>
+      <MenuToggle clicked={sideDrawerToggleHandler} shrink={shrink}/>
     </header>
 
     <SideDrawer open={showSideDrawer} closed={sideDrawerClosedHandler} />

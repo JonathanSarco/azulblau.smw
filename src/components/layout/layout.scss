@@ -7,7 +7,6 @@
 }
 
 .header-bar {
-    height: 60px;
     width: 100%;
     position: fixed;
     top: 0;
@@ -19,7 +18,15 @@
     padding: 0 20px;
     box-sizing: border-box;
     z-index: 90;
+    transition: height 0.3s ease-out;
     
+    &--big {
+        height: 65px;
+    }
+
+    &--small {
+        height: 40px;
+    }
 
     nav {
         height: 100%;
