@@ -1,18 +1,22 @@
 .toggle-menu {
-    width: 40px;
+    width: 35px;
     height: 100%;
     display: flex;
     flex-flow: column;
     justify-content: space-around;
     align-items: center;
-    padding: 10px 0;
+    padding: 15px 0;
     box-sizing: border-box;
     cursor: pointer;
+    margin-left: auto;
+    margin-right: 0;
 
     div {
-        width: 85%;
-        height: 2px;
-        background-color: black;
+        width: 90%;
+        height: 3px;
+        border-radius: 10px;
+        background-color: #0E1317;
+        opacity: 80%;
     }
 
     @media(min-width: 500px) {

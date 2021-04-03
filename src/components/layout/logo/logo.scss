@@ -5,12 +5,13 @@
     box-sizing: border-box;
     border-radius: 5px;
     display: flex;
+    transition: margin-left 1s;
 
     &__img {
         height: 100%;
     }
 
     @media (max-width: 500px) {
-        display: none;
+        margin-left: 25%;
     }
 }

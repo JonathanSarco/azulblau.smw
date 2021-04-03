@@ -21,10 +21,10 @@ function Layout({ children }) {
   return (
     <>
     <header className="header-bar"> 
-      <MenuToggle clicked={sideDrawerToggleHandler}/>
       <Logo />
       <LogoTitle />
       <NavBar />
+      <MenuToggle clicked={sideDrawerToggleHandler}/>
     </header>
 
     <SideDrawer open={showSideDrawer} closed={sideDrawerClosedHandler} />
