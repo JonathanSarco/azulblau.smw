@@ -1,27 +1,37 @@
-
 .main-title {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    font-size: 12px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 12px;
 
-    &__vertical {
-        border-left: 1px solid black;
-        height: 15px;
-        margin: 0.9em;
+  &__vertical {
+    height: 15px;
+    margin: 0.9em;
+
+    &--header {
+      border-left: 1px solid black;
     }
 
-    &__title {
-        font-size: 1em;    
-        font-weight: 300;
-        letter-spacing: 4px;
+    &--footer {
+      border-left: 1px solid white;
     }
+  }
 
-    &--shrink {
-        display: none;
-    }
+  &__title {
+    font-size: 1em;
+    font-weight: 300;
+    letter-spacing: 4px;
 
-    @media (max-width: 650px) {
-        display: none;
+    &--footer {
+      color: white;
     }
+  }
+
+  &--shrink {
+    display: none;
+  }
+
+  @media (max-width: 650px) {
+    display: none;
+  }
 }

@@ -1,18 +1,16 @@
-
 .container-img {
-    background-color: white;
-    padding: 8px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    display: flex;
-    height: 40px;
-    transition: margin-left 1s;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: flex;
+  height: 40px;
+  transition: margin-left 1s;
 
-    &__img {
-        height: 100%;
-    }
+  &__img {
+    height: 100%;
+  }
 
-    @media (max-width: 500px) {
-        margin-left: 25%;
-    }
+  @media (max-width: 500px) {
+    margin-left: 25%;
+  }
 }

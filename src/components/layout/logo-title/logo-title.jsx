@@ -3,12 +3,12 @@ import './logo-title.scss';
 import { LOGO_TITLE } from '../constants';
 
 
-function LogoTitle({ shrink }) {
+function LogoTitle({ shrink, isFooter = false }) {
 
     return (
         <div className={`main-title${shrink ? '--shrink' : ''}`}>
-            <div className="main-title__vertical" />
-            <h2 className="main-title__title">{LOGO_TITLE}</h2>
+            <div className={`main-title__vertical main-title__vertical--${isFooter ? 'footer' : 'header'}`} />
+            <h2 className={`main-title__title ${isFooter ? 'main-title__title--footer' : ''}`}>{LOGO_TITLE}</h2>
         </div>
     )
 }

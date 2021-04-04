@@ -1,0 +1,19 @@
+footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 90;
+    transition: height 0.3s ease-out;
+    height: 60px;
+    
+    nav {
+        height: 100%;
+    }
+}
