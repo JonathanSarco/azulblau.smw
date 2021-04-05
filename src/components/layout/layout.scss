@@ -1,9 +1,9 @@
 .main-container {
-  margin: 10px;
-  padding: 0;
+  position: relative;
 }
 
 .body-container {
-  position: relative;
+  margin: 10px;
   padding-bottom: 6rem;
+  min-height: 85vh;
 }
