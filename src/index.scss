@@ -1,4 +1,4 @@
-html {
+* {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
@@ -9,6 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
 }
 
 code {
