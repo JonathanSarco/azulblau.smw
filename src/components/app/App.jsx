@@ -14,7 +14,6 @@ function App() {
     <p>Something to write about...</p>
     <p>Something to write about...</p>
     <p>Something to write about...</p>
-    {/* <p>Something to write about...</p>
     <p>Something to write about...</p>
     <p>Something to write about...</p>
     <p>Something to write about...</p>
@@ -38,7 +37,8 @@ function App() {
     <p>Something to write about...</p>
     <p>Something to write about...</p>
     <p>Something to write about...</p>
-    <p>Something to write about...</p> */}
+    <p>Something to write about...</p>
+    <p>Something to write about...</p>
     </>
   )
 

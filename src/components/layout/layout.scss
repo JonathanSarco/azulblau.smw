@@ -1,8 +1,5 @@
-.main-container {
-  
-}
-
-.body-container {
-  margin: 25px 25px 5rem 25px;
-  min-height: calc(100vh - 105px - 5rem)
+.main-content {
+  margin: 80px 25px 1.5rem 25px;
+  min-height: calc(100vh - 105px - 5rem);
+  flex: 1 1 80%;
 }

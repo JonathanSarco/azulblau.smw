@@ -16,16 +16,16 @@ function Layout({ children }) {
   }
 
   return (
-    <div className="main-container">
+    <>
       <Header sideDrawerToggleHandler={sideDrawerToggleHandler} />
       <SideDrawer open={showSideDrawer} closed={sideDrawerClosedHandler} />
       
-      <div className="body-container">
+      <div className="main-content">
         {children}
       </div>
 
       <Footer />
-    </div>
+    </>
   );
 }
 
