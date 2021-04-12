@@ -9,7 +9,11 @@
     height: 100%;
   }
 
-  @media (max-width: 500px) {
-    margin-left: 25%;
+  @media (max-width: 520px) {
+    margin-left: 30%;
+  }
+
+  @media (max-width: 300px) {
+    margin-left: 24%;
   }
 }

@@ -1,45 +1,16 @@
 import React from "react";
 import "./App.scss";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import Layout from "../layout/layout";
+import Home from "../home/home";
 
 function App() {
 
   const routes = (
-    <>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    <p>Something to write about...</p>
-    </>
+    <Switch>
+      <Route path='/' component={Home} />
+      <Redirect to='/' />
+    </Switch>
   )
 
   return (
