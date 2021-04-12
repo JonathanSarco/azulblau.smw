@@ -1,0 +1,78 @@
+@mixin subtitle-style {
+    h2 {
+        font-size: 1em;
+        // color: rgb(78, 77, 77);
+        text-transform: uppercase;
+    }
+
+    span {
+        font-size: 1em;
+    }
+}
+
+.single-mural-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-gap: 15px;
+
+    @media only screen and (max-width: 1024px) {
+        grid-template-columns: 1fr;
+      }
+}
+
+.mural-image {
+    display: grid;
+    //grid-auto-rows: 200px;
+    //grid-gap: 10px;
+    grid-column: span 2;
+
+    &__item {
+        & img {
+            margin-bottom: 10px;
+            max-width: 100%;
+            //max-height: 100%;
+            margin-left: auto;
+            display: block;
+            margin-right: auto;
+          }
+    }
+}
+
+.mural-text {
+    height: 100vh;
+    color: #393939;
+    grid-column: span 1;
+
+    &__date {
+        @include subtitle-style;
+    }
+
+    &__tags {
+        @include subtitle-style;
+    }
+
+    &__main {
+        h1 {
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 1em;
+            display: block;
+        }
+    }
+
+    &__extra {
+        h2 {
+            font-size: 1em;
+            
+        }
+
+        p {
+            font-size: 1em;
+            display: block;
+        }
+    }
+}
+
+
