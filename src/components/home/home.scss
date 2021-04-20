@@ -1,17 +1,17 @@
 .murals {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 2fr;
-  grid-auto-rows: 200px;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 200px 200px;
   grid-gap: 15px;
 
-  @media only screen and (max-width: 1280px) {
+  @media (min-width: 50rem) {
     grid-template-columns: 3fr 1fr 1fr;
     grid-auto-rows: 200px 200px;
   }
 
-  @media only screen and (max-width: 800px) {
-    grid-template-columns: 1fr 1fr;
-    grid-auto-rows: 200px 200px;
+  @media (min-width: 80rem) {
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    grid-auto-rows: 200px;
   }
 }
 
@@ -23,24 +23,19 @@
 
   & img {
     flex-shrink: 0;
-    // min-width: 100%;
     min-height: 100%;
   }
 
   &.large {
     grid-row: span 2;
-    
-    @media only screen and (max-width: 800px) {
-      grid-column: span 2;
-      grid-row: span 2;
+    grid-column: span 2;
+
+    @media (min-width: 50rem) {
+      grid-column: span 1;
     }
   }
 
   &.medium {
     grid-row: span 2;
-    
-    @media only screen and (max-width: 800px) {
-      grid-row: span 2;
-    }
   }
 }

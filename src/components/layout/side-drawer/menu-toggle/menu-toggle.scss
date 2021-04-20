@@ -3,7 +3,7 @@
     display: flex;
     flex-flow: column;
     justify-content: space-around;
-    align-items: center;   
+    align-items: center;
     cursor: pointer;
     margin-left: auto;
     margin-right: 0;
@@ -12,7 +12,7 @@
         width: 90%;
         height: 3px;
         border-radius: 10px;
-        background-color: #0E1317;
+        background-color: #0e1317;
         opacity: 80%;
     }
 
@@ -26,7 +26,7 @@
         padding: 2px 0;
     }
 
-    @media(min-width: 500px) {
+    @media (min-width: 40rem) {
         display: none;
     }
 }
