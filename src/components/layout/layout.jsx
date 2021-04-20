@@ -8,18 +8,18 @@ function Layout({ children }) {
   const [showSideDrawer, setShowSideDrawer] = useState(false);
 
   const sideDrawerClosedHandler = () => {
-      setShowSideDrawer(false);
+    setShowSideDrawer(false);
   }
 
   const sideDrawerToggleHandler = () => {
-      setShowSideDrawer(!showSideDrawer);
+    setShowSideDrawer(!showSideDrawer);
   }
 
   return (
     <>
       <Header sideDrawerToggleHandler={sideDrawerToggleHandler} />
       <SideDrawer open={showSideDrawer} closed={sideDrawerClosedHandler} />
-      
+
       <div className="main-content">
         {children}
       </div>

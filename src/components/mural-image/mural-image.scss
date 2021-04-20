@@ -1,7 +1,8 @@
+$breakpoint_pixel: 40rem;
+
 @mixin subtitle-style {
     h2 {
-        font-size: 1em;
-        // color: rgb(78, 77, 77);
+        font-size: 2em;
         text-transform: uppercase;
     }
 
@@ -10,38 +11,48 @@
     }
 }
 
+@mixin paragraph-style {
+    p {
+        font-size: 1em;
+        display: block;
+    }
+}
+
 .single-mural-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
-    grid-gap: 15px;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr;
 
-    @media only screen and (max-width: 1024px) {
-        grid-template-columns: 1fr;
-      }
+    @media (min-width: $breakpoint_pixel) {
+        grid-template-columns: 1fr 1fr 2fr;
+    }
 }
 
 .mural-image {
-    display: grid;
-    //grid-auto-rows: 200px;
-    //grid-gap: 10px;
-    grid-column: span 2;
-
     &__item {
         & img {
-            margin-bottom: 10px;
-            max-width: 100%;
-            //max-height: 100%;
-            margin-left: auto;
-            display: block;
-            margin-right: auto;
-          }
+            margin-bottom: 0.8rem;
+            max-width: 40rem;
+            min-width: 24rem;
+            width: 100%;
+
+            @media (min-width: $breakpoint_pixel) {
+                max-width: 100%;
+                min-width: 18rem;
+            }
+        }
+    }
+
+    @media (min-width: $breakpoint_pixel) {
+        display: grid;
+        grid-column: span 2;
     }
 }
 
 .mural-text {
-    height: 100vh;
-    color: #393939;
-    grid-column: span 1;
+    height: 100%;
+    color: #000000;
+    font-size: 1rem;
 
     &__date {
         @include subtitle-style;
@@ -55,24 +66,13 @@
         h1 {
             text-transform: uppercase;
         }
-
-        p {
-            font-size: 1em;
-            display: block;
-        }
+        @include paragraph-style;
     }
 
     &__extra {
         h2 {
             font-size: 1em;
-            
         }
-
-        p {
-            font-size: 1em;
-            display: block;
-        }
+        @include paragraph-style;
     }
 }
-
-
