@@ -1,6 +1,6 @@
 .main-title {
   width: 100%;
-  display: flex;
+  display: none;
   justify-content: flex-start;
   font-size: 12px;
 
@@ -20,7 +20,7 @@
   &__title {
     font-size: 1em;
     font-weight: 300;
-    letter-spacing: 4px;
+    letter-spacing: 0.35em;
 
     &--footer {
       color: white;
@@ -31,7 +31,7 @@
     display: none;
   }
 
-  @media (max-width: 650px) {
-    display: none;
+  @media (min-width: 40rem) {
+    display: flex;
   }
 }
