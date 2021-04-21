@@ -1,0 +1,32 @@
+.person {
+    &__image {
+        background-color: #f3ece6;
+        height: 12.5rem;
+        width: 12.5rem;
+        border-radius: 50%;
+        margin: 2rem auto 0 auto;
+        display: flex;
+        min-width: 10rem;
+
+        img {
+            height: 80%;
+            margin: auto;
+        }
+    }
+
+    &__data {
+        text-align: center;
+
+        &__name {
+            font-size: 1rem;
+        }
+
+        &__description {
+            font-size: 1rem;
+        }
+        
+        &__icon {
+            margin: 0.5rem;
+        }
+    }
+}

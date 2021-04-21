@@ -7,57 +7,31 @@ import {
     NF_NAME,
     NF_JOB,
     JS_NAME,
-    JS_JOB
+    JS_JOB,
+    NF_LINKEDIN,
+    JS_LINKEDIN
 } from './constants';
-
-import { FaLinkedin } from 'react-icons/fa';
-
-import JS from '../../assets/avatar_js.png';
-import NF from '../../assets/avatar_nf.png';
+import JS_AVATAR from '../../assets/avatar_js.png';
+import NF_AVATAR from '../../assets/avatar_nf.png';
+import Profile from './profile/profile';
 
 function About() {
+
+    const newText = DESCRIPTION.split('\n').map(str => <p className="about-description__text">{str}</p>);
 
     return (
         <div className="about-container">
             <div className="about-info">
-                <div className="person">
-                    <div className="person__image">
-                        <img src={NF} alt="Natacha Ferenc" />
-                    </div>
-                    <div className="person__data">
-                        <h2 className="person__data__name">{NF_NAME}</h2>
-                        <span className="person__data__description">{NF_JOB}</span>
-                        <div className="person__data__icon">
-                            <a href="https://www.linkedin.com/in/natachaferenc/" rel='noopener noreferrer' target='_blank'>
-                                <FaLinkedin fontSize="1.5rem" color="black"/>
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-                
-                <div className="person">
-                    <div className="person__image">
-                        <img src={JS} alt="Jonathan Sarco" />
-                    </div>
-                    <div className="person__data">
-                        <h2 className="person__data__name">{JS_NAME}</h2>
-                        <span className="person__data__description">{JS_JOB}</span>
-                        <div className="person__data__icon">
-                        <a href="https://www.linkedin.com/in/jonathan-sarco/" rel='noopener noreferrer' target='_blank'>
-                                <FaLinkedin fontSize="1.5rem" color="black"/>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <Profile key={NF_NAME} name={NF_NAME} job={NF_JOB} imageUrl={NF_AVATAR} imageAlt={NF_NAME} linkedInUrl={NF_LINKEDIN} />
+                <Profile key={JS_NAME} name={JS_NAME} job={JS_JOB} imageUrl={JS_AVATAR} imageAlt={JS_NAME} linkedInUrl={JS_LINKEDIN} />
             </div>
 
-            {/* <div className="about-container__description">
-                <h1 className="description__title">{TITLE}</h1>
-                <h1 className="description__subtitle">{SUBTITLE}</h1>
-                <br />
-                <p>{DESCRIPTION}</p>
-            </div> */}
+            <div className="about-description">
+                <h1 className="about-description__title">{TITLE}</h1>
+                <h1 className="about-description__subtitle">{SUBTITLE}</h1>
+                <hr />
+                {newText}
+            </div>
 
         </div>
     );
