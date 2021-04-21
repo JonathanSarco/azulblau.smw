@@ -7,7 +7,10 @@ function NavBar() {
   return (
     <nav className="nav">
       <ul className="nav nav__items">
-        <Link to="/about" className="nav nav__items__item">{ABOUT}</Link>
+        <li className="nav nav__items__item">
+          <Link to="/about" >{ABOUT}</Link>
+        </li>
+
         <li className="nav nav__items__item">{BLOG}</li>
         <li className="nav nav__items__item">{CONTACT}</li>
       </ul>
