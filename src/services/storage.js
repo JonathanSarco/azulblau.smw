@@ -19,8 +19,6 @@ const storageRef = storage.ref()
 
 
 export const getAllPhotos = async () => {
-    let urlPhotos = [];
-
     try {
         const response = await storageRef.child('george_rose/').listAll()
 
