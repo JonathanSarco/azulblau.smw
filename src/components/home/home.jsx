@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 // import { Link } from "react-router-dom";
 import { getAllPhotos } from "../../services/storage";
+import Backdrop from "../UI/backdrop/backdrop";
+import Spinner from "../UI/spinner/spinner";
 import "./home.scss";
 
 function Home() {
@@ -18,7 +20,12 @@ function Home() {
     setLoading(false)
   }
 
-  let murals = <p>Empty</p>;
+  let murals = (
+    <>
+      <Backdrop show={true}/>
+      <Spinner />
+    </>
+  );
 
   if (!loading) {
     murals = urlPhotos.map((url, index) => {
