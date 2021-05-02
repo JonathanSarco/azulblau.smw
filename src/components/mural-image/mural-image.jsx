@@ -1,82 +1,89 @@
-import React from "react";
-import SINGLE_1 from '../../assets/single_mural/single_1.png';
-import SINGLE_2 from '../../assets/single_mural/single_2.png';
-import SINGLE_3 from '../../assets/single_mural/single_3.png';
-import SINGLE_4 from '../../assets/single_mural/single_4.png';
+import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
+import { getDataFromArtistId } from "../../services/database";
+import { getAllPhotosByArtistsId } from '../../services/storage';
+import Backdrop from "../UI/backdrop/backdrop";
+import Spinner from "../UI/spinner/spinner";
+import {
+  DATE,
+  TAGS
+} from './constants';
+
 import "./mural-image.scss";
 
-function MuralImage(props) {
-  console.log("ID: ", props);
+function MuralImage() {
+  let { id } = useParams();
+
+  const [urlPhotos, setUrlPhotos] = useState([]);
+  const [imageData, setImageData] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    async function fetchData() {
+      setLoading(true);
+      
+      const urls = await getAllPhotosByArtistsId(id).catch(err => console.log('Error on FetchAllPhotos: ', err));
+      const responseData = await getDataFromArtistId('george_rose').catch(err => console.log('Error on FetchDescription: ', err));
+      setUrlPhotos(urls);
+      setImageData(responseData);
+      
+      setLoading(false);
+    }
+    fetchData();
+  }, [id]);
+
+  let murals = (
+    <>
+      <Backdrop show={true} />
+      <Spinner />
+    </>
+  );
+
+  if (!loading) {
+    murals = (
+      urlPhotos.map(url => (
+        <div className="mural-image__item" key={url}>
+          <img src={url} alt={url} />
+        </div>
+      ))
+    )
+  }
 
   return (
     <div className="single-mural-container">
       <div className="mural-image">
-        <div className="mural-image__item">
-          <img src={SINGLE_1} alt="First" />
-        </div>
-        <div className="mural-image__item">
-          <img src={SINGLE_2} alt="First" />
-        </div>
-        <div className="mural-image__item">
-          <img src={SINGLE_3} alt="First" />
-        </div>
-        <div className="mural-image__item">
-          <img src={SINGLE_4} alt="First" />
-        </div>
+        {murals}
       </div>
 
-      <div className="mural-text">
-        <div className="mural-text__date">
-          <h2>DATE</h2>
-          <span>April 30, 2020</span>
-        </div>
+      { imageData ?
+        (<div className="mural-text">
+          <div className="mural-text__date">
+            <h2>{DATE}</h2>
+            <span>{imageData ? imageData.date : ''}</span>
+          </div>
 
-        <div className="mural-text__tags">
-          <h2>TAGS</h2>
-          <span>Australia, Mexico, New Zealand, Uganda</span>
-        </div>
+          <div className="mural-text__tags">
+            <h2>{TAGS}</h2>
+            <span>{imageData ? imageData.tags : ''}</span>
+          </div>
 
-        <div className="mural-text__main">
-          <h1>george rose</h1>
-          <p>
-            Melbourne-based artist George Rose spends most of her time climbing
-            up ladders and painting murals. Since abandoning her formal design
-            training, George has pursued a multidisciplinary art practice using
-            colour, gradients and type to spread her message. George travels
-            from one project to another, rarely in one city for longer then a
-            few months completing art commissions for a diverse range of
-            clients. She has recently worked with CURVY, Good Cycles, Jansport,
-            Starbucks and YHA Australia to name a few. If she’s not completing
-            work for commercial projects, she’s on the global festival circuit
-            including First Coat, Perfect Match, Roskilde, Tropica, Wall to Wall
-            and Wonderwalls.
-          </p>
-        </div>
+          <div className="mural-text__main">
+            <h1>{imageData ? imageData.title : ''}</h1>
+            <p>{imageData ? imageData.titleDescription : ''}
+            </p>
+          </div>
 
-        <div className="mural-text__extra">
-          <h2 className="mural-text__extra__title">Milabirra</h2>
-          <p>
-            Milabirra. It means Woman kind in Larrakia and is a powerful word
-            that attracts good feminine energy. ⁣ I cant thank Tony (Tee) Lee
-            and Nadine enough for working with me to find the right word from
-            the Larrakia language for this wall as a part of the
-            @darwinstreetartfestival. For this particular wall I really wanted
-            to celebrate the diversity of language spoken by traditional owners
-            of Australia, (Up to 363 languages belonging to an estimated 28
-            language families and isolates) and pay my respect to the Larrakia
-            Nation. I think language can be such an important connection to
-            identity, culture and history and I think it's important to make
-            visible the language we have so as not to loose that connection.
-            Beyond #type the wall also features Blue Lotus and Sturt's Desert
-            Rose #flowers for the Northern Territory.⁣ Honestly Love this wall
-            so much. ⁣ Thank you to to @uncledevoid @t_dog_ @j_b_dewing
-            @soleveins @eddiezammit and the whole Darwin crew for all your hard
-            work and support on this one! Much love to my family up north.⁣ ⁣
-            Pic courtesy of lady love @shannynhiggins
-          </p>
-        </div>
-      </div>
+          <div className="mural-text__extra">
+            <h2 className="mural-text__extra__title">{imageData ? imageData.subtitle : ''}</h2>
+            <p>{imageData ? imageData.subtitleDescription : ''}
+            </p>
+          </div>
+        </div>)
+        : ''
+      }
+
     </div>
+
   );
 }
 

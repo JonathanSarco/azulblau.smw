@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
-import { getAllPhotos } from "../../services/storage";
+import { Link } from "react-router-dom";
+import { getAllMainPhotos } from "../../services/storage";
 import Backdrop from "../UI/backdrop/backdrop";
 import Spinner from "../UI/spinner/spinner";
 import "./home.scss";
@@ -15,7 +15,7 @@ function Home() {
 
   async function fetchData() {
     setLoading(true)
-    const urls = await getAllPhotos();
+    const urls = await getAllMainPhotos();
     setUrlPhotos(urls);
     setLoading(false)
   }
@@ -30,12 +30,13 @@ function Home() {
   if (!loading) {
     murals = urlPhotos.map((url, index) => {
       let size = index % 3 === 0 ? 'large' : 'medium';
+      let urlToImage = url.split('main%2F').pop().split('.jpg')[0];
 
       return (
-        <div key={index} className={"murals__item " + size}>
-          {/* <Link to="/mural/1"> */}
-          <img src={url} alt={url} />
-          {/* </Link> */}
+        <div key={index} className={`murals__item ${size}`}>
+          <Link to={`/mural/${urlToImage}`}>
+            <img src={url} alt={urlToImage} />
+          </Link>
         </div>
       )
     })
