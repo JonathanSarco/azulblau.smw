@@ -79,4 +79,16 @@ $breakpoint_pixel: 40rem;
         }
         @include paragraph-style;
     }
+
+    &__networks {
+        a {
+            display: block;
+            margin: 0.5rem 0;
+        }
+
+        a > span {
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+    }
 }

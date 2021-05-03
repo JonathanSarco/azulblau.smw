@@ -21,17 +21,18 @@ function MuralImage() {
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
-      
+
       const urls = await getAllPhotosByArtistsId(id).catch(err => console.log('Error on FetchAllPhotos: ', err));
-      const responseData = await getDataFromArtistId('george_rose').catch(err => console.log('Error on FetchDescription: ', err));
+      const responseData = await getDataFromArtistId(id).catch(err => console.log('Error on FetchDescription: ', err));
       setUrlPhotos(urls);
       setImageData(responseData);
-      
+
       setLoading(false);
     }
     fetchData();
   }, [id]);
 
+  let social = null;
   let murals = (
     <>
       <Backdrop show={true} />
@@ -46,7 +47,20 @@ function MuralImage() {
           <img src={url} alt={url} />
         </div>
       ))
-    )
+    );
+
+    // Separate social networks
+    const socialNetworks = imageData && imageData.networks ? imageData.networks.split(',').map(i => i.replace(' ', '')) : '';
+    if (socialNetworks) {
+      social = (
+        socialNetworks.map(sn => (
+          <a href={sn} key={sn}>
+            <span>{sn}</span>
+          </a>
+        ))
+      );
+    }
+
   }
 
   return (
@@ -69,15 +83,17 @@ function MuralImage() {
 
           <div className="mural-text__main">
             <h1>{imageData ? imageData.title : ''}</h1>
-            <p>{imageData ? imageData.titleDescription : ''}
-            </p>
+            <p>{imageData ? imageData.titleDescription : ''}</p>
           </div>
 
           <div className="mural-text__extra">
             <h2 className="mural-text__extra__title">{imageData ? imageData.subtitle : ''}</h2>
-            <p>{imageData ? imageData.subtitleDescription : ''}
-            </p>
+            <p>{imageData ? imageData.subtitleDescription : ''}</p>
           </div>
+
+          <div className="mural-text__networks">
+            {social}
+          </div>  
         </div>)
         : ''
       }

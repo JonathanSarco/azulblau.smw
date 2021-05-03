@@ -3,19 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './components/app/App';
 import reportWebVitals from './reportWebVitals';
-// import firebase from 'firebase/app';
-
-// // Set the configuration for your app
-// // TODO: Replace with your app's config object
-// var firebaseConfig = {
-//   apiKey: "AIzaSyBjaC91evo46oQ4k7_gTltsqOh-sbMql3A",
-//   authDomain: "azulblau-swm.firebaseapp.com",
-//   databaseURL: "https://azulblau-swm-default-rtdb.firebaseio.com",
-//   projectId: "azulblau-swm",
-//   storageBucket: "azulblau-swm.appspot.com",
-// };
-
-// firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <React.StrictMode>
