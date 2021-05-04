@@ -31,7 +31,6 @@ function Home() {
     murals = urlPhotos.map((url, index) => {
       let size = index % 3 === 0 ? 'large' : 'medium';
       let urlToImage = url.split('main%2F').pop().split('.jpg')[0];
-
       return (
         <div key={index} className={`murals__item ${size}`}>
           <Link to={`/mural/${urlToImage}`}>

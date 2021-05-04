@@ -6,12 +6,12 @@ function IconBar() {
     return (
         <div className='iconbar-container'>
             <div className='iconbar-container'>
-                <a href='https://www.instagram.com/azulblau.smw/' target="_blank">
+                <a href='https://www.instagram.com/azulblau.smw/' target="_blank" rel='noopener noreferrer'>
                     <SiInstagram color='white' />
                 </a>
             </div>
             <div className='iconbar-container'>
-                <a href='https://twitter.com/AzulblauS' target='_blank'>
+                <a href='https://twitter.com/AzulblauS' target='_blank' rel='noopener noreferrer'>
                     <SiTwitter color='white' />
                 </a>
             </div>
