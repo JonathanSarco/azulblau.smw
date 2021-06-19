@@ -18,7 +18,7 @@ function Layout({ children }) {
   return (
     <>
       <Header sideDrawerToggleHandler={sideDrawerToggleHandler} />
-      <SideDrawer open={showSideDrawer} closed={sideDrawerClosedHandler} />
+      <SideDrawer open={showSideDrawer} closed={sideDrawerClosedHandler}/>
 
       <div className="main-content">
         {children}

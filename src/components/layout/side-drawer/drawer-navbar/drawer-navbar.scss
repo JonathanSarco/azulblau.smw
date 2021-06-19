@@ -1,0 +1,25 @@
+
+.drawer-nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+
+    &__items {
+        // display: flex;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        align-items: center;
+        height: 100%;
+        
+    }
+
+    & .item {
+        margin: 1rem 0;
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    }
+}
